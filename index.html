@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityDefender.AI - 995 Calls</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .btn {
+            margin: 10px;
+        }
+        audio {
+            margin-top: 20px;
+        }
+        #audioPlayer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CommunityDefender.AI</h1>
+        <h4>Example 995 Calls</h4>
+        <button class="btn waves-effect waves-light" onclick="playAudio('case 1-english.mp3')">Trouble Breathing</button>
+        <button class="btn waves-effect waves-light" onclick="playAudio('case 2-english.mp3')">Burns</button>
+        <button class="btn waves-effect waves-light" onclick="playAudio('case 3-english.mp3')">Seizure</button>
+        <button class="btn waves-effect waves-light" onclick="playAudio('case 4-english.mp3')">Fall</button>
+        <button class="btn waves-effect waves-light" onclick="playAudio('case 5-english.mp3')">Road Accident</button>
+        <!-- Chinese -->
+        <h4>Example 995 Calls (Chinese)</h4>
+        <button class="btn waves-effect waves-light" onclick="playAudio('case 4-chinese.mp3')">Fall</button>
+        <button class="btn waves-effect waves-light" onclick="playAudio('case 5-chinese.mp3')">Road Accident</button>
+
+        <div id="audioPlayer" style="display:none;">
+            <p>Now Playing: <span id="audioTitle"></span></p>
+            <audio controls autoplay loop id="audio">
+                Your browser does not support the audio element.
+            </audio>
+            <br>
+            <button class="btn red waves-effect waves-light" onclick="stopAudio()">Stop Audio</button>
+        </div>
+    </div>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        function playAudio(fileName) {
+            document.getElementById('audioPlayer').style.display = 'block';
+            document.getElementById('audioTitle').textContent = fileName;
+            var audio = document.getElementById('audio');
+            audio.src = 'Audio/' + fileName;
+            audio.load();
+            audio.play();
+        }
+
+        function stopAudio() {
+            var audio = document.getElementById('audio');
+            audio.pause();
+            audio.src = '';
+            document.getElementById('audioPlayer').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
